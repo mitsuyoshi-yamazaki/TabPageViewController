@@ -12,6 +12,12 @@ open class TabPageViewController: UIPageViewController {
     open var isInfinity: Bool = false
     open var option: TabPageOption = TabPageOption()
     open var tabItems: [(viewController: UIViewController, title: String)] = []
+    open var currentViewController: UIViewController? {
+        guard let currentIndex = currentIndex else {
+            return nil
+        }
+        return tabItems[currentIndex].viewController
+    }
 
     open var currentIndex: Int? {
         guard let viewController = viewControllers?.first else {
